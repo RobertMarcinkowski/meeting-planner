@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8" />
+	<title>Meeting planner</title>
+	
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+	
+</head>
+<body>
+	<nav class="navbar navbar-default">
+  		<div class="container-fluid">
+    		<div class="navbar-header">
+      			<a class="navbar-brand" href="/">Meeting planner</a>
+    		</div>
+    		<ul class="nav navbar-nav">
+      			<li><a href="/">Home</a></li>
+      			<li><a href="/list">Meetings list</a></li>
+      			<li><a href="/new">Add meeting</a></li>
+    		</ul>
+  		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6">
+				<h1>Meeting</h1>
+				<h2 th:text="${meeting.name}">Name</h2>
+			</div>
+			<div class="col-sm-3"></div>
+		</div>
+		
+		<hr/>
+		<div class="row">
+			<div class="col-sm-2"></div>
+			<div class="col-sm-8">
+				<table class="table table-striped">
+					<tr>
+						<td>id:</td>
+						<td th:text="${meeting.id}">id</td>
+					</tr>
+					<tr>
+						<td>name:</td>
+						<td th:text="${meeting.name}">name</td>
+					</tr>
+					<tr>
+						<td>description:</td>
+						<td th:text="${meeting.description}">description</td>
+					</tr>
+					<tr>
+						<td>room:</td>
+						<td th:text="${meeting.room}">room</td>
+					</tr>
+					<tr>
+						<td>time:</td>
+						<td th:text="${#dates.format(meeting.time, 'yyyy/MM/dd HH:mm')}">time</td>
+					</tr>
+					<tr>
+						<td>duration (min):</td>
+						<td th:text="${meeting.duration}">duration</td>
+					</tr>
+					<tr>
+						<td>actions:</td>
+						<td>
+							<a th:href="'/edit/'+${meeting.id}"><button type="button" class="btn btn-sm btn-primary">Edit</button></a>
+							<a th:href="'/confirm-delete/'+${meeting.id}"><button type="button" class="btn btn-sm btn-danger">Delete</button></a>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-sm-2"></div>
+		</div>
+		
+		<hr/>
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6">
+				<p>Author: Robert Marcinkowski</p>
+			</div>
+			<div class="col-sm-3"></div>
+		</div>
+
+	</div>
+	
+	
+	<script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	
+</body>
+</html>

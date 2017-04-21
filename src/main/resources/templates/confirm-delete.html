@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8" />
+	<title>Meeting planner</title>
+	
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+	
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6">
+				<h1>Delete meeting</h1>
+			</div>
+			<div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6">
+				<h3 th:text="${meeting.name}">meeting</h3>
+			</div>
+			<div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6">
+				<a th:href="'/delete/'+${meeting.id}"><button type="button" class="btn btn-lg btn-success">Yes</button></a>
+				<a href="/list"><button type="button" class="btn btn-lg btn-danger">No</button></a>
+				
+			</div>
+			<div class="col-sm-3"></div>
+		</div>
+	</div>
+	
+	
+	<script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	
+</body>
+</html>
